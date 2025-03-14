@@ -30,11 +30,5 @@ public class Cinema {
     public List<Session> getSessions(){
         return sessions;
     }
-//    public void printInfo() {
-//        System.out.println("Кинотеатр: " + name);
-//        System.out.println("Количество залов: " + halls.size());
-//        for (Hall hall : halls) {
-//            System.out.println("Зал: " + hall.getName());
-//        }
-//    }
+
 }

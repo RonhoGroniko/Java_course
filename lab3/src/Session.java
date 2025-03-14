@@ -7,16 +7,16 @@ public class Session {
     private Hall hall;
     private Date startTime;
     private List<Ticket> tickets;
-    private Seat[][] seats; // Массив мест для этого сеанса
+    private Seat[][] seats;
 
     public Session(Movie movie, Hall hall, Date startTime) {
         this.movie = movie;
         this.hall = hall;
         this.startTime = startTime;
         this.tickets = new ArrayList<>();
-        this.seats = new Seat[hall.getRows()][hall.getCols()]; // Инициализируем места
+        this.seats = new Seat[hall.getRows()][hall.getCols()];
 
-        // Инициализируем места
+
         for (int i = 0; i < hall.getRows(); i++) {
             for (int j = 0; j < hall.getCols(); j++) {
                 seats[i][j] = new Seat(i, j);

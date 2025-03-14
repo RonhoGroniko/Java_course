@@ -45,7 +45,7 @@ public class CinemaSystem {
 
             Session session1 = new Session(movie1, hall1, startTime1); // Сеанс "Матрица" в зале 1
             Session session2 = new Session(movie2, hallA, startTime2); // Сеанс "Интерстеллар" в зале A
-            Session session3 = new Session(movie3, hall1, startTime3); // Сеанс "Интерстеллар" в зале A
+            Session session3 = new Session(movie3, hall1, startTime3); // Сеанс "Матрица" в зале 1
 
             cinema1.addSession(session1);
             cinema2.addSession(session2);
@@ -141,7 +141,6 @@ public class CinemaSystem {
                 Hall hall = findHallByName(cinema, hallName);
                 if (hall != null) {
                     Session session = new Session(movie, hall, startTime);
-//                    cinema.getHalls().forEach(h -> h.getSeats()); // Инициализация мест
                     cinema.addSession(session);
                     System.out.println("Сеанс создан: " + movie.getTitle() + " в " + hallName);
                 } else {
@@ -160,9 +159,9 @@ public class CinemaSystem {
         if (cinema != null) {
             Hall hall = findHallByName(cinema, hallName);
             if (hall != null) {
-                Session session = findSessionByHallAndTime(cinema, hall, startTime); // Ищем сеанс по залу и времени
+                Session session = findSessionByHallAndTime(cinema, hall, startTime);
                 if (session != null) {
-                    session.printSeats(); // Выводим места для этого сеанса
+                    session.printSeats();
                 } else {
                     System.out.println("Сеанс не найден.");
                 }
@@ -204,7 +203,7 @@ public class CinemaSystem {
                         if (row >= 0 && row < seats.length && col >= 0 && col < seats[0].length) {
                             Seat seat = seats[row][col];
                             if (!seat.isOccupied()) {
-                                seat.book(); // Бронируем место
+                                seat.book();
                                 Ticket ticket = new Ticket(session, seat);
                                 session.addTicket(ticket);
                                 System.out.println("Билет успешно забронирован.");
@@ -237,17 +236,6 @@ public class CinemaSystem {
         return null;
     }
 
-    public void chooseMovie() {
-        if (currentUser != null) {
-            System.out.println("Список фильмов:");
-            // Здесь можно вывести список фильмов, например, из сеансов
-            // Пока что просто выводим заглушку
-            System.out.println("- Фильм 1");
-            System.out.println("- Фильм 2");
-        } else {
-            System.out.println("Доступ запрещен.");
-        }
-    }
 
     public List<Session> findSessionsByMovie(String movieTitle) {
         List<Session> result = new ArrayList<>();
@@ -280,7 +268,7 @@ public class CinemaSystem {
     }
 
     public void printAllMovies() {
-        Set<String> uniqueMovies = new HashSet<>(); // Используем Set для уникальных названий фильмов
+        Set<String> uniqueMovies = new HashSet<>();
         for (Cinema cinema : cinemas) {
             for (Session session : cinema.getSessions()) {
                 uniqueMovies.add(session.getMovie().getTitle());
@@ -326,6 +314,6 @@ public class CinemaSystem {
                 return sessionsInHall;
             }
         }
-        return Collections.emptyList(); // Возвращаем пустой список, если зал или кинотеатр не найдены
+        return Collections.emptyList();
     }
 }
