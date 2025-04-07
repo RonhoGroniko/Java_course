@@ -5,9 +5,6 @@ public class Library {
     private List<Book> books;
     private Set<String> uniqueAuthors;
     private Map<String, Integer> authorBookCount;
-    private boolean isThere = false;
-    private final List<Book> authorBooks = new ArrayList<>();
-    private final List<Book> yearBooks = new ArrayList<>();
 
     public Library() {
         books = new ArrayList<>();
@@ -23,6 +20,7 @@ public class Library {
 
     public void removeBook(Book book) {
         books.remove(book);
+        boolean isThere = false;
         for (Book item : books) {
             if (item.getAuthor().equals(book.getAuthor())) {
                 isThere = true;
@@ -34,6 +32,7 @@ public class Library {
     }
 
     public List<Book> findBooksByAuthor(String author) {
+        List<Book> authorBooks = new ArrayList<>();
         for (Book book : books) {
             if (book.getAuthor().equals(author)) {
                 authorBooks.add(book);
@@ -43,6 +42,7 @@ public class Library {
     }
 
     public List<Book> findBooksByYear(int year) {
+        List<Book> yearBooks = new ArrayList<>();
         for (Book book : books) {
             if (book.getYear() == year) {
                 yearBooks.add(book);
