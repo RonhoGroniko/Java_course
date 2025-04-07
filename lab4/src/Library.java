@@ -28,7 +28,12 @@ public class Library {
             }
         }
         if (!isThere) { uniqueAuthors.remove(book.getAuthor()); }
-        authorBookCount.merge(book.getAuthor(), -1, Integer::sum);
+        authorBookCount.compute(book.getAuthor(), (author, count) -> {
+            if (count == 1) {
+                return null;
+            }
+            return count - 1;
+        });
     }
 
     public List<Book> findBooksByAuthor(String author) {

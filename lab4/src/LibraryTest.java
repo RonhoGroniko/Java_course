@@ -30,6 +30,5 @@ public class LibraryTest {
         lib.removeBook(book1);
         System.out.println("\nСписок книг после удаления:");
         lib.printAllBooks();
-
     }
 }
