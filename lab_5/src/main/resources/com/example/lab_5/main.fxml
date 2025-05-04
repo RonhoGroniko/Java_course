@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.lab_5.MainController" spacing="10"
+      style="-fx-padding: 10;">
+    <Text text="Библиотека" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+
+    <TabPane>
+        <Tab text="Книги">
+            <VBox spacing="10">
+                <HBox spacing="10">
+                    <Button text="Добавить книгу" onAction="#showAddBookDialog"/>
+                    <Button text="Редактировать" onAction="#showEditBookDialog"/>
+                    <Button text="Удалить" onAction="#deleteSelectedBook"/>
+                    <TextField fx:id="searchField" promptText="Поиск..."/>
+                    <Button text="Найти" onAction="#searchBooks"/>
+                </HBox>
+
+                <TableView fx:id="booksTable">
+                    <columns>
+                        <TableColumn text="ID" prefWidth="50" fx:id="idColumn"/>
+                        <TableColumn text="Название" prefWidth="200" fx:id="titleColumn"/>
+                        <TableColumn text="Автор" prefWidth="150" fx:id="authorColumn"/>
+                        <TableColumn text="Год" prefWidth="80" fx:id="yearColumn"/>
+                        <TableColumn text="Жанр" prefWidth="120" fx:id="genreColumn"/>
+                        <TableColumn text="Количество" prefWidth="80" fx:id="quantityColumn"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <Tab text="Авторы">
+            <VBox spacing="10">
+                <HBox spacing="10">
+                    <Button text="Добавить автора" onAction="#showAddAuthorDialog"/>
+                    <Button text="Редактировать" onAction="#showEditAuthorDialog"/>
+                    <Button text="Удалить" onAction="#deleteSelectedAuthor"/>
+                </HBox>
+
+                <TableView fx:id="authorsTable">
+                    <columns>
+                        <TableColumn text="ID" prefWidth="50" fx:id="authorIdColumn"/>
+                        <TableColumn text="Фамилия" prefWidth="200" fx:id="authorSurnameColumn"/>
+                        <TableColumn text="Имя" prefWidth="200" fx:id="authorNameColumn"/>
+                        <TableColumn text="Отчество" prefWidth="200" fx:id="authorPatronymicColumn"/>
+                        <TableColumn text="Год рождения" prefWidth="120" fx:id="birthDateColumn"/>
+                        <TableColumn text="Страна" prefWidth="120" fx:id="countryColumn"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>
