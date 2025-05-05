@@ -6,7 +6,7 @@ public class DatabaseHandler {
     private static final String DB_URL = "jdbc:sqlite:library.db";
     public static final String[] GENRES = {
             "Фантастика", "Фэнтези", "Детектив", "Роман",
-            "Ужасы", "Научная литература", "Биография", "Поэзия"
+            "Ужасы", "Научная литература", "Биография", "Поэзия", "Поэма"
     };
     private Connection connection;
 

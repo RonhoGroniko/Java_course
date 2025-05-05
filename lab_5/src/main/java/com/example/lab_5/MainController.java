@@ -283,7 +283,7 @@ public class MainController {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Подтверждение удаления");
             alert.setHeaderText("Удаление автора");
-            alert.setContentText("Вы уверены, что хотите удалить автора: " + selected.getName() + "?");
+            alert.setContentText("Вы уверены, что хотите удалить автора: " + selected.getFullName() + "?");
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
